@@ -24,6 +24,8 @@ def get_response(input, image, prompt):
 # Initialize streamlit app
 st.set_page_config(page_title="Invoice Extractor App")
 st.header("Multi-language Invoice Extractor")
+st.write("")
+st.markdown("###### Extract key invoice information in any language instantly with this easy-to-use, multi-language invoice extractor.")
 
 # Initialize query count    
 if "query_count" not in st.session_state:
@@ -106,7 +108,9 @@ input = st.text_input("Input Prompt")
 submit = st.button("Ask a question about the invoice")
 
 # Call Functions
-display_image(uploaded_file)
 if submit:
     handle_submit(input, image=uploaded_file, prompt=input_prompt)
     manage_query_count()
+
+st.markdown("----")
+display_image(uploaded_file)
