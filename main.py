@@ -36,13 +36,13 @@ def manage_query_count():
     """
     Manage query count and reset after a minute if limit is exceeded.
     """
-    if st.session_state['query_count'] > 2:
-        st.warning("You have reached the limit of 5 queries. Please wait for one minute.")
-        st.session_state['reset_time'] = time.time()
+    if st.session_state['query_count'] > 5:
+        st.warning("You have reached the limit of 5 queries. Please try again later.")
+        # st.session_state['reset_time'] = time.time()
         return
-        if 'reset_time' in st.session_state and time.time() - st.session_state['reset_time'] > 60:
-            st.session_state['query_count'] = 0
-            del st.session_state['reset_time']
+        # if 'reset_time' in st.session_state and time.time() - st.session_state['reset_time'] > 60:
+        #     st.session_state['query_count'] = 0
+        #     del st.session_state['reset_time']
     else:
         st.session_state['query_count'] += 1
 
